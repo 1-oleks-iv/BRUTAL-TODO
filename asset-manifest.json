@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/1-oleks-iv/BRUTAL-TODO/static/css/main.b39f9123.css",
+    "main.js": "/1-oleks-iv/BRUTAL-TODO/static/js/main.1f6657b2.js",
+    "static/media/bootstrap-icons.woff?": "/1-oleks-iv/BRUTAL-TODO/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/1-oleks-iv/BRUTAL-TODO/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/1-oleks-iv/BRUTAL-TODO/index.html",
+    "main.b39f9123.css.map": "/1-oleks-iv/BRUTAL-TODO/static/css/main.b39f9123.css.map",
+    "main.1f6657b2.js.map": "/1-oleks-iv/BRUTAL-TODO/static/js/main.1f6657b2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b39f9123.css",
+    "static/js/main.1f6657b2.js"
+  ]
+}
