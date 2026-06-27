@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* шрифт для всего приложения */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+/* шрифт для заголовков, кнопок и бегущей строки */
+h1, h2, h3, h4, h5, h6,
+.todo-title,
+.grid-start-btn,
+.toggle-form-btn,
+.filter-btn,
+.todo-navbar a,
+.marquee-content {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+}
+
+
+/* oбщий контейнер на весь экран */
+.home-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f0;
+    padding: 20px;
+}
+
+/* сетка */
+.brutal-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 24px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* базовый стиль для всех блоков */
+.grid-item {
+    background: #ffffff;
+    border: 4px solid #000000;
+    box-shadow: 12px 12px 0px #000000;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* бегущая строка */
+.item-marquee {
+    grid-column: 1 / -1;
+    background: #000000;
+    color: #ffd500;
+    padding: 16px;
+    box-shadow: 8px 8px 0px #4deeea;
+    display: flex;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    animation: marquee-scroll 10s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/*  текст */
+.item-main {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+}
+
+.badge-grid {
+    display: inline-block;
+    background: #b14fff;
+    color: #fff;
+    font-weight: 900;
+    padding: 6px 12px;
+    border: 3px solid #000;
+    margin-bottom: 24px;
+}
+
+.grid-title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    color: #000000;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.grid-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+.item-accent {
+    background: #ff90e8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.huge-emoji {
+    font-size: 80px;
+    margin-bottom: 16px;
+    display: block;
+    animation: shake 2s ease-in-out infinite;
+}
+
+.accent-text {
+    font-weight: 900;
+    font-size: 24px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Кнопка действия */
+.item-action {
+    background: #4deeea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.action-label {
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.grid-start-btn {
+    background: #ffd500;
+    color: #000000;
+    border: 3px solid #000000;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 16px 24px;
+    text-transform: uppercase;
+    box-shadow: 6px 6px 0px #000000;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+    width: 100%;
+}
+
+.grid-start-btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px #000000;
+    background: #ffffff;
+}
+
+/* вроде адаптивность для телефона(не тестил) */
+@media (max-width: 768px) {
+    .brutal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-main {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .grid-title {
+        font-size: 48px;
+    }
+}

@@ -1,38 +1,308 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* шрифт для всего приложения */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+/* шрифт для заголовков, кнопок и бегущей строки */
+h1, h2, h3, h4, h5, h6,
+.todo-title,
+.grid-start-btn,
+.toggle-form-btn,
+.filter-btn,
+.todo-navbar a,
+.marquee-content {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* инпуты */
+input, textarea, select {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f4f0;
+    color: #111;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* навбар */
+.todo-navbar {
+    background: #ffffff !important;
+    border-bottom: 3px solid #000000;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-navbar a,
+.todo-navbar .navbar-brand {
+    color: #000000 !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* форма добавления задачи */
+.todo-form {
+    max-width: 620px;
+    margin: 0 auto 44px auto;
+    padding: 24px;
+    background: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 8px 8px 0px #000000;
+    border-radius: 0;
+}
+
+.todo-form .form-control,
+.todo-form .form-select {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 0;
+    font-weight: 500;
+}
+
+.todo-form .form-control::placeholder {
+    color: #666666;
+}
+
+/* кнопка добавления */
+.todo-form .btn {
+    border-radius: 0;
+    background: #ffd500;
+    border: 2px solid #000000;
+    color: #000000;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.todo-form .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+/* карточки задач */
+.todo-card {
+    min-height: 180px;
+    background: #ffffff !important;
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    border-radius: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #000000;
+}
+
+.todo-card .card-body {
+    position: relative;
+}
+
+/* текст в карточках */
+.todo-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #000000;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.todo-description {
+    color: #333333 !important;
+    font-size: 15px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.text-secondary {
+    color: #666666 !important;
+}
+
+/* чекбокс */
+.form-check-input {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+/* кнопки управления 'изменить удалть' */
+.edit-btn,
+.delete-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 0 !important;
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+    box-shadow: 3px 3px 0px #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.edit-btn {
+    background: #4deeea !important;
+}
+
+.delete-btn {
+    background: #ff3b30 !important;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000000;
+}
+
+/* поиск */
+.search-input {
+    transition: width 0.3s ease;
+}
+
+/* приоритеты ( верхняя жирная линия) */
+.priority-low {
+    border-top: 8px solid #34c759 !important;
+}
+
+.priority-medium {
+    border-top: 8px solid #ffcc00 !important;
+}
+
+.priority-high {
+    border-top: 8px solid #ff3b30 !important;
+}
+
+/* кнопки фильтрации */
+.filter-btn {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 0; /* строгие острые углы - не трогать*/
+    padding: 8px 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+    cursor: pointer;
+}
+
+/* нееактив + анимка */
+.filter-btn:hover:not(.active) {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+    background: #f4f4f0;
+}
+
+/* актив + анимка */
+.filter-btn.active {
+    background: #ff90e8;
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #000000;
+    outline: none;
+}
+
+/* инпут для поиска */
+.search-input-brutal {
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    border-radius: 0;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 4px 4px 0px #000000;
+    outline: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.search-input-brutal::placeholder {
+    color: #666666;
+    font-weight: 500;
+}
+
+.search-input-brutal:focus {
+    box-shadow: 6px 6px 0px #000000;
+    transform: translate(-2px, -2px);
+}
+
+/* кнопки поиска  */
+.search-btn-brutal {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000000;
+    border-radius: 0;
+    font-weight: 900;
+    font-size: 18px;
+    color: #000000;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+}
+
+.search-btn-brutal:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+/* цвета для разных кнопок search*/
+.search-btn-open {
+    background: #b14fff;
+    color: #ffffff;
+}
+
+.search-btn-close {
+    background: #ff5722;
+    color: #000000;
+}
+
+.todo-card.completed {
+    background-color: #e5e5e5 !important;
+    box-shadow: 2px 2px 0px #000000;
+    transform: translate(4px, 4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.todo-card.completed:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+.todo-card.completed .todo-title {
+    text-decoration: none;
+    opacity: 0.3;
+}
+
+.todo-card.completed .todo-description {
+    opacity: 0.3;
+}
+
+.todo-card.completed .card-body::after {
+        content: "COMPLETED";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px;
+    color: #ff3b30;
+    border: 5px solid #ff3b30;
+    padding: 8px 16px;
+    pointer-events: none;
+    opacity: 0.9;
+    box-shadow: 6px 6px 0px rgba(255, 59, 48, 0.3);
+    z-index: 10;
 }
